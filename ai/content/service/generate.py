@@ -1,9 +1,12 @@
 from .utils import validate_text, generate_content
+from .utils import  render_markdown
 
+PROMPT_DIR = "../prompts"
+PROMPT_TEMPLATE = "build_generation_prompt.md"
 
 def _build_generation_prompt(title: str, tone: str = None) -> str:
     prompt = f"Write a short blog post about: {title}."
-
+    
     if tone:
         prompt += f" Please use a {tone} tone."
 
@@ -19,7 +22,7 @@ def generate_post(title: str, tone: str = None) -> dict:
         min_length=5,
     )
 
-    prompt = _build_generation_prompt(cleaned_title, tone)
+    prompt = render_markdown(PROMPT_TEMPLATE, {"text": cleaned_title}, PROMPT_DIR)
     content = generate_content(prompt)
 
     if len(content) > 500:

@@ -1,0 +1,1 @@
+The pitch deck must be realistic, written in a professional tone persuasive to investors, and strictly limited to 4 main sections. Avoid cliché marketing jargon and focus on the technical value.
