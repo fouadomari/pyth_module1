@@ -1,6 +1,6 @@
 from ..content_clint import ContentClient
 from jinja2 import Environment, FileSystemLoader
-
+import os
 
 
 def render_markdown(template_name: str, context: dict, template_dir: str) -> str:
